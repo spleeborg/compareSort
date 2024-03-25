@@ -11,7 +11,8 @@ void *Alloc(size_t sz)
 	extraMemoryAllocated += sz;
 	size_t* ret = malloc(sizeof(size_t) + sz);
 	*ret = sz;
-	//printf("Extra memory allocated, size: %ld\n", sz);
+    //comment this print line out for better output readablity 
+	printf("Extra memory allocated, size: %ld\n", sz);
 	return &ret[1];
 }
 
@@ -20,7 +21,8 @@ void DeAlloc(void* ptr)
 {
 	size_t* pSz = (size_t*)ptr - 1;
 	extraMemoryAllocated -= *pSz;
-	//printf("Extra memory deallocated, size: %ld\n", *pSz);
+    //comment this print line out for better output readablity 
+	printf("Extra memory deallocated, size: %ld\n", *pSz);
 	free((size_t*)ptr - 1);
 }
 
